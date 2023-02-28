@@ -12,4 +12,10 @@ class Status extends Model
     protected $table = "statuses";
 
     protected $guarded = [];
+
+    public function comments()
+    {
+        return  $this->hasMany(Comment::class, 'status_id', 'id')
+                ->join('users', 'users.id', 'comments.user_id');
+    }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\StatusController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -29,5 +30,10 @@ Route::middleware(['auth:api'])->group(
         Route::post('/status', [StatusController::class, 'store'])->name('status.store');
         Route::post('/status/{id}', [StatusController::class, 'update'])->name('status.update');
         Route::delete('/status/{id}', [StatusController::class, 'destroy'])->name('status.destroy');
+
+        //Comment Route
+        Route::post('/comment', [CommentController::class, 'store'])->name('comment.store');
+        Route::post('/comment/{id}', [CommentController::class, 'update'])->name('comment.update');
+        Route::delete('/comment/{id}', [CommentController::class, 'destroy'])->name('comment.destroy');
     }
 );

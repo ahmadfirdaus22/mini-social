@@ -14,6 +14,6 @@ class StatusSeeder extends Seeder
      */
     public function run()
     {
-        //
+        
     }
 }

@@ -13,14 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('status_comment', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('status_id');
-            $table->unsignedBigInteger('comment_id');
+            $table->text('comment');
             $table->timestamps();
 
-            $table->foreign('status_id')->references('id')->on('statuses');
-            $table->foreign('comment_id')->references('id')->on('comments');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('status_id')->references('id')->on('statuses')->onDelete('cascade');
         });
     }
 
@@ -31,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('status_comment');
+        Schema::dropIfExists('comments');
     }
 };

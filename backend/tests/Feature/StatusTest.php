@@ -11,12 +11,9 @@ use Tests\TestCase;
 class StatusTest extends TestCase
 {
     use DatabaseTransactions;
+
     protected $user;
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
+
     public function test_user_can_get_all_own_status()
     {
         Status::factory()->count(5)->create(['user_id' => $this->user->id]);

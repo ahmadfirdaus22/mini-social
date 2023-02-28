@@ -18,6 +18,7 @@ class StatusController extends Controller
         $data1 = Status::selectRaw('id,user_id,status,created_at')
                         ->where('user_id', auth()->id())
                         ->paginate();
+
         //Get all user status without exception
         $data2 = Status::selectRaw('id,user_id,status,created_at')
                         ->where('user_id', "!=" ,auth()->id())
@@ -58,7 +59,9 @@ class StatusController extends Controller
      */
     public function show($id)
     {
-        $data = Status::find($id)->first();
+        $data = Status::where('id',$id)
+                        ->with('comments')
+                        ->first();
 
         return response()->json([
             'status' => "OK",
