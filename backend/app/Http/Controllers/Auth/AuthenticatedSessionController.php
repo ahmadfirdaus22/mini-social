@@ -46,6 +46,32 @@ class AuthenticatedSessionController extends Controller
     }
 
     /**
+     * Refresh an authenticated session.
+     */
+    public function refresh()
+    {
+        $token = auth()->refresh();
+
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'bearer',
+            'expires_in' => auth()->factory()->getTTL() * 60
+        ]);
+    }
+
+    /**
+     * Checking a Token
+     */
+    public function check()
+    {
+        $token = Auth::check();
+        return response()->json([
+            'status' => $token
+        ]);
+    }
+
+
+    /**
      * Destroy an authenticated session.
      */
     public function destroy(Request $request): Response
@@ -54,4 +80,5 @@ class AuthenticatedSessionController extends Controller
 
         return response()->noContent(); 
     }
+
 }

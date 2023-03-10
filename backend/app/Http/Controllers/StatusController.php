@@ -16,12 +16,16 @@ class StatusController extends Controller
     {
         //Get all user status in specified user
         $data1 = Status::selectRaw('id,user_id,status,created_at')
+                        ->with("user")
                         ->where('user_id', auth()->id())
+                        ->orderBy('created_at', 'DESC')
                         ->paginate();
 
         //Get all user status without exception
         $data2 = Status::selectRaw('id,user_id,status,created_at')
+                        ->with("user")
                         ->where('user_id', "!=" ,auth()->id())
+                        ->orderBy('created_at', 'DESC')
                         ->paginate();
 
         return response()->json([
@@ -41,6 +45,12 @@ class StatusController extends Controller
         $validated =  $request->validate([    
             "status" => 'required|string'
         ]);
+
+        if(count(explode(' ', $validated['status'])) > 50)
+            return response()->json([
+                'message' => 'Your Text Exceed The 50 Word Limit'
+            ]);
+
         $validated['user_id'] = auth()->id();
 
         $status = Status::create($validated);
@@ -60,12 +70,14 @@ class StatusController extends Controller
     public function show($id)
     {
         $data = Status::where('id',$id)
+                        ->with('user')
                         ->with('comments')
                         ->first();
 
         return response()->json([
             'status' => "OK",
-            "data" => $data
+            "data" => $data,
+            "user" => auth()->id()
         ]);
     }
 

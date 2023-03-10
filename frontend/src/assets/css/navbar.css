@@ -1,0 +1,52 @@
+:root {
+    --font1: 'Josefin Sans', sans-serif;
+    --font2: 'Labrada', serif;
+    --font3: 'Prompt', sans-serif;
+    --font4: 'Rubik', sans-serif;
+    --font5: 'Shantell Sans', cursive;
+    --font6: 'Signika Negative', sans-serif;
+    --font7: 'Sofia Sans Semi Condensed', sans-serif;
+}
+
+.wrapper-navbar{
+    background-color: #97fc97;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrapper-navbar .left{
+    height: 10vh;
+    margin-left: 5%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.wrapper-navbar .left img{
+    width: 6.8rem;
+}
+
+.wrapper-navbar .middle{
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: large;
+    font-weight: 600;
+    font-family: var(--font7);
+}
+
+.wrapper-navbar .middle .text{
+    text-decoration: none;
+    color: #102207;
+}
+
+.wrapper-navbar .right{
+    height: 10vh;
+    margin-right: 5%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}

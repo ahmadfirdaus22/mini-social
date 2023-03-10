@@ -1,0 +1,167 @@
+:root {
+    --font1: 'Josefin Sans', sans-serif;
+    --font2: 'Labrada', serif;
+    --font3: 'Prompt', sans-serif;
+    --font4: 'Rubik', sans-serif;
+    --font5: 'Shantell Sans', cursive;
+    --font6: 'Signika Negative', sans-serif;
+    --font7: 'Sofia Sans Semi Condensed', sans-serif;
+}
+
+.wrapper-login {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../image/Login-Background.png")
+}
+
+.wrapper-login .form-login {
+    width: 25rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.wrapper-login .form-login .header-form {
+    padding: 10px 20px;
+    width: 100%;
+}
+
+.wrapper-login .form-login .header-form .image-header {
+    width: 86%;
+    text-align: center;
+}
+
+.wrapper-login .form-login .header-form .image-header img {
+    width: 8rem;
+}
+
+.wrapper-login .form-login .header-form .desc {
+    margin: 5px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    color: #082108;
+    font-family: var(--font3);
+}
+
+.wrapper-login .form-login .header-form .desc span {
+    font-size: 30px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.wrapper-login .form-login .header-form .desc small {
+    font-size: 17px;
+}
+
+.wrapper-login .form-login .body-form {
+    width: 86%;
+    padding: 10px 20px 30px 20px;
+}
+
+.wrapper-login .form-login .body-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.wrapper-login .form-login .body-form form .form-grp {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+.wrapper-login .form-login .body-form form .form-grp.checkbox {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+.wrapper-login .form-login .body-form form .form-grp.checkbox input {
+    width: 1rem;
+    border-radius: 6px !important;
+}
+
+.wrapper-login .form-login .body-form form .form-grp.checkbox label{
+    font-family: var(--font3);
+    cursor: pointer;
+}
+
+.wrapper-login .form-login .body-form form .form-grp label {
+    font-family: var(--font1);
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.wrapper-login .form-login .body-form form .form-grp input {
+    width: 100%;
+    height: 2.2rem;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background-color: #ABFAA9;
+    padding: 5px 10px;
+    font-family: var(--font3);
+    border: 1px solid #ABFAA9;
+    transition: 0.2s;
+}
+
+.wrapper-login .form-login .body-form form .form-grp input[type=password]{
+    letter-spacing: 3px;
+}
+
+.wrapper-login .form-login .body-form form .form-grp input[type=password]::placeholder{
+    letter-spacing: normal;
+}
+
+.wrapper-login .form-login .body-form form .form-grp input:focus{
+    transition: 0.2s;
+    border: 1px solid #1b263b;
+}
+
+.wrapper-login .form-login .body-form form .form-butt{
+    width: 100%;
+    text-align: center;
+}
+
+.wrapper-login .form-login .body-form form .form-butt button{
+    width: 15rem;
+    height: 2.5rem;
+    border: none;
+    outline: none;
+    background-color: #082108;
+    color: #efefef;
+    font-family: var(--font3);
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+.wrapper-login .form-login .body-form form .form-butt button:hover{
+    background-color: #1D4E04;
+    transform: scale(1.02);
+}
+
+.wrapper-login .form-login .body-form form .form-butt button:focus{
+    background-color: #1D4E04;
+    transform: scale(1.02);
+}
+
+.wrapper-login .form-login .body-form form .form-foot{
+    font-family: var(--font3);
+    font-size: small;
+    margin-top: 3%;
+}
+
+@media only screen and (max-width:1000px) {
+    .wrapper-login {
+        background-color: #cef3ce;
+        background-image: none;
+    }
+}
+
+

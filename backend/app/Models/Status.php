@@ -18,4 +18,9 @@ class Status extends Model
         return  $this->hasMany(Comment::class, 'status_id', 'id')
                 ->join('users', 'users.id', 'comments.user_id');
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
