@@ -7,7 +7,7 @@ Mini social media that can only make a status and also can comment other status
 3. In terminal run cd backend and do composer install
 4. run cd .. and then cd frontend after that you can do npm install
 
-#Run The Web
+# Run The Web
 1. Open the code in your vs code
 2. Open terminal and then cd backend, after that run php artisan serve
 3. After it you can open new terminal and then run npm start
