@@ -5,12 +5,14 @@ import axios from "axios";
 import LoadingSpinner from "../../components/Loading";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { Dropdown, Button } from "antd";
+import moment from "moment";
 
 const Show = () => {
   const [status, setStatus] = useState([]);
   const [loading, setLoading] = useState(false);
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState([]);
+  const [idUser, SetIdUser] = useState("");
   const param = useParams();
   const [rendering, forceUpdate] = useReducer((x) => x + 1, 0);
   const token = localStorage.getItem("token");
@@ -28,11 +30,12 @@ const Show = () => {
         if (response.status == 200) {
           setStatus(response.data.data);
           setComments(response.data.data.comments);
+          SetIdUser(response.data.user)
           setLoading(false);
+          }
           if(response.data.user == response.data.data.user_id){
             document.getElementById("more").style.display = "block";
           }
-        }
       });
   };
 
@@ -45,7 +48,11 @@ const Show = () => {
     axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
     //post comment
-    await axios.post("http://localhost:8000/api/comment", formData).then();
+    await axios.post("http://localhost:8000/api/comment", formData).then((response)=> {
+      if(response.status == 201){
+        window.location.reload(true);
+      }
+    });
   };
 
   const deleteHandle = async() => {
@@ -115,7 +122,9 @@ const Show = () => {
                 status.status
               )}
             </div>
-            <div className="bottom"></div>
+            <div className="bottom">
+            {moment(status.created_at, "YYYY-MM-DDTHH:mm:ss.SSSSZ").fromNow()}
+            </div>
           </div>
           <div className="right">
             <div className="top">Comment</div>
@@ -131,7 +140,7 @@ const Show = () => {
                   {comments.map((value, index) => {
                     return (
                       <div key={index} className="data">
-                        <label>{value.name}</label>
+                        <label>{value.name} <i id="trash" class="fa-solid fa-trash"></i></label>
                         {value.comment}
                       </div>
                     );
@@ -148,7 +157,7 @@ const Show = () => {
                   placeholder="Send A Comment"
                 />
                 <button>
-                  <i class="fa-solid fa-plus"></i>
+                  <i class="fa-regular fa-paper-plane"></i>
                 </button>
               </form>
             </div>

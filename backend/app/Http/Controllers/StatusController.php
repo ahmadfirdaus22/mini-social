@@ -19,14 +19,14 @@ class StatusController extends Controller
                         ->with("user")
                         ->where('user_id', auth()->id())
                         ->orderBy('created_at', 'DESC')
-                        ->paginate();
+                        ->get();
 
         //Get all user status without exception
         $data2 = Status::selectRaw('id,user_id,status,created_at')
                         ->with("user")
                         ->where('user_id', "!=" ,auth()->id())
                         ->orderBy('created_at', 'DESC')
-                        ->paginate();
+                        ->get();
 
         return response()->json([
             'user' => $data1,

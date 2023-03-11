@@ -78,7 +78,10 @@
 
 .wrapper-show .first-layer .left .bottom{
     height: 15%;
-
+    width: 95%;
+    font-family: var(--font3);
+    display: flex;
+    justify-content: right;
 }
 
 .wrapper-show .first-layer .right{
@@ -147,7 +150,15 @@
 
 .wrapper-show .first-layer .right .middle .many .data label{
     font-weight: 700;
+    display: flex;
+    justify-content: space-between;
 }
+
+.wrapper-show .first-layer .right .middle .many .data label i{
+    display: none;
+
+}
+
 
 .wrapper-show .first-layer .right .bottom{
     height: 15%;
@@ -163,6 +174,7 @@
     gap: 15px;
     justify-content: center;
 }
+
 
 .wrapper-show .first-layer .right .bottom form input{
     height: 25px;

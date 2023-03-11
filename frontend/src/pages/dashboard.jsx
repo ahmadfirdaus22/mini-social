@@ -22,22 +22,11 @@ const Dashboard = () => {
       setLoading(true);
       //setting axios header with bearer token
       axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-      // checking token
-      // await axios.post("http://localhost:8000/api/check").then((response) => {
-      //     if(response.data.status ==  false){
-      //         setStatus(false);
-      //     }
-      // })
-      // if(status == false){
-      //     await axios.post("http://localhost:8000/api/refresh").then((response) => {
-      //         localStorage.setItem('token', response.data.access_token);
-      //     })
-      // }
       //Get All status from database
       await axios.get("http://localhost:8000/api/status").then((response) => {
         if (response.status == 200) {
-          setMyStatus(response.data.user.data);
-          setOtherStatus(response.data.not_user.data);
+          setMyStatus(response.data.user);
+          setOtherStatus(response.data.not_user);
           setLoading(false);
           // console.log(myStatus)
         }
