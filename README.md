@@ -8,7 +8,8 @@ Mini social media that can only make a status and also can comment other status
 4. after you have the env file change the database inside the env also the password and username
 6. In terminal run cd backend and do composer install
 7. Don't forget to run php artisan key:generate
-8. run cd .. and then cd frontend after that you can do npm install
+8. Run php artisan migrate for migrating the database
+9. run cd .. and then cd frontend after that you can do npm install
 
 # Run The Web
 1. Open the code in your vs code
