@@ -4,8 +4,10 @@ Mini social media that can only make a status and also can comment other status
 # Set Up Web
 1. Clone the repository to your local
 2. Open in your vs code or other
-3. In terminal run cd backend and do composer install
-4. run cd .. and then cd frontend after that you can do npm install
+3. Open the backend file and copy env example 
+4. In terminal run cd backend and do composer install
+5. Don't forget to run php artisan key:generate
+6. run cd .. and then cd frontend after that you can do npm install
 
 # Run The Web
 1. Open the code in your vs code
