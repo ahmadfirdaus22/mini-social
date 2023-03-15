@@ -82,6 +82,22 @@ const Show = () => {
     ),
   }]
 
+  //give word limit up to 50 word
+  const wordLimiter = () => {
+    let input = document.getElementById("comment");
+
+    input.addEventListener("keypress", (e) => {
+      let txt = input.value.split(/\s+/);
+      let count = txt.length
+      let maxword = 50;
+      if(count > maxword){
+          e.preventDefault();
+          setTimeout(function(){alert("Your Comment Exceed the Word Limit")}, 1);      
+      }
+      setComment(input.value);
+    });
+  };
+
   useEffect(() => {
     if (localStorage.getItem("token") == null) {
       navigate("/");
@@ -150,12 +166,13 @@ const Show = () => {
             </div>
             <div className="bottom">
               <form onSubmit={handleComment}>
-                <input
-                  type="text"
-                  onChange={(e) => setComment(e.target.value)}
-                  name="comment"
-                  placeholder="Send A Comment"
-                />
+                  <input
+                    type="text"
+                    onChange={wordLimiter}
+                    name="comment"
+                    id="comment"
+                    placeholder="Send A Comment"
+                    />
                 <button>
                   <i class="fa-regular fa-paper-plane"></i>
                 </button>

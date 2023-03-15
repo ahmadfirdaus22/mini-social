@@ -18,10 +18,10 @@
 }
 
 .wrapper-dashboard .user-status{
-    width: 75%;
+    width: 85vw;
     margin-top: 3vh;
     margin-bottom: 3vh;
-    height: 10%;
+    height: 9vh;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     border-radius: 10px;
     display: flex;
@@ -83,10 +83,10 @@
 
 .wrapper-dashboard .other-status{
     background-color: #ffffff;
-    width: 75%;
+    width: 85vw;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     border-radius: 10px;
-    height: 70%;
+    height: 70vh;
     
 }
 .wrapper-dashboard .other-status .loading{
@@ -125,9 +125,10 @@
     border: 2px solid #cef3ce;
     margin-left: 2%;
     height: 100%;
-    min-width: 45vh;
-    max-width: 45vh;
-    height: 45vh;
+    min-width: 52vh;
+    max-width: 52vh;
+    height: 80%;
+    font-size: large;
     padding: 1vh 2vh 1vh 2vh;
     text-align: justify;
     cursor: pointer;
@@ -145,10 +146,15 @@
     height: 10%;
 }
 
-.wrapper-dashboard .other-status .wrap-data .data p{
+.wrapper-dashboard .other-status .wrap-data .data .p{
     height: 80%;
     width: 100%;
-    justify-content: justify;
+    text-align: justify;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 11; 
+    white-space: pre-wrap; 
 }
 
 .wrapper-dashboard .other-status .wrap-data .data .bottom{
@@ -158,6 +164,18 @@
 }
 
 
-/* @media screen () { */
+@media only screen and (max-width: 600px) { 
+.wrapper-dashboard .other-status .wrap-data .data{
+        max-width: 85%;
+        min-width: 85%;
+    }
+
+    .wrapper-dashboard .user-status {
+        width: 90%;
+    }
+    .wrapper-dashboard .other-status {
+        width: 90%;
+        height: 80%;
+    }
     
-/* }     */
+}   

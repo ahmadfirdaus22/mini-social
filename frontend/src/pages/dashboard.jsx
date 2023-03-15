@@ -99,9 +99,9 @@ const Dashboard = () => {
                     onClick={() => showDetail(value.user.name, value.id)}
                   >
                     <label>{value.user.name}</label>
-                    <p>
+                    <div className="p">
                         {value.status}
-                    </p>
+                    </div>
                     <div className="bottom">
                         {moment(value.created_at, "YYYY-MM-DDTHH:mm:ss.SSSSZ").fromNow()}
                     </div>
